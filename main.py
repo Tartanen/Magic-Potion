@@ -1,7 +1,7 @@
 from flask import Flask, request
 import logging
 import json
-from random import choice, sample
+from random import choice
 from Get_sheet import list_of_dicts
 
 app = Flask(__name__)
@@ -87,19 +87,33 @@ def play_game(res, req):
     user_id = req['session']['user_id']
     attempt = sessionStorage[user_id]['attempt']
     if attempt == 1:
-        city = choice(list(cities))
-        while city in sessionStorage[user_id]['guessed_cities']:
-            city = choice(list(cities))
-        sessionStorage[user_id]['city'] = city
+        quest = get_quest(list_of_dicts)
+        while quest in sessionStorage[user_id]['quest']:
+            quest = get_quest(list_of_dicts)
+        sessionStorage[user_id]['quest'] = quest
         res['response']['card'] = {}
         res['response']['card']['type'] = 'BigImage'
-        res['response']['card']['title'] = 'Что это за город?'
-        res['response']['card']['image_id'] = cities[city][attempt - 1]
+        res['response']['card']['title'] = quest['quest']
+        res['response']['card']['image_id'] = quest['image']
         res['response']['text'] = 'Тогда сыграем!'
+        res['response']['buttons'] = [
+            {
+                'title': quest['var1'],
+                'hide': True
+            },
+            {
+                'title': quest['var2'],
+                'hide': True
+            },
+            {
+                'title': quest['var3'],
+                'hide': True
+            },
+        ]
     else:
-        city = sessionStorage[user_id]['city']
-        if city in sessionStorage[user_id]['guessed_cities']:
-            if req['request']['original_utterance'].lower() in countries[city]:
+        quest = get_quest(list_of_dicts)
+        if quest in sessionStorage[user_id]['quest']:
+            if req['request']['original_utterance'].lower() == quest['answer'].lower():
                 res['response']['text'] = 'Правильно! Переходим к следующему вопросу?'
                 res['response']['buttons'] = [
                     {
@@ -113,22 +127,22 @@ def play_game(res, req):
                 ]
             return
 
-        if get_city(req) == city:
+        if req['request']['original_utterance'].lower() == quest['answer'].lower():
             res['response']['text'] = 'Правильно!'
-            sessionStorage[user_id]['guessed_cities'].append(city)
+            sessionStorage[user_id]['quest'].append(quest)
             return
         else:
             res['response']['text'] = 'Неправильно'
             if attempt == 3:
                 res['response']['text'] = f'Вы пытались. Сыграем ещё?'
                 sessionStorage[user_id]['game_started'] = False
-                sessionStorage[user_id]['guessed_cities'].append(city)
+                sessionStorage[user_id]['quest'].append(quest)
                 return
             else:
                 res['response']['card'] = {}
                 res['response']['card']['type'] = 'BigImage'
                 res['response']['card']['title'] = 'Неправильно.'
-                res['response']['card']['image_id'] = cities[city][attempt - 1]
+                res['response']['card']['image_id'] = '12' ## Сюда фигачим айдишник разбитого зелья
                 res['response']['text'] = 'А вот и не угадал!'
     sessionStorage[user_id]['attempt'] += 1
 
@@ -139,6 +153,8 @@ def get_first_name(req):
         if entity['type'] == 'YANDEX.FIO':
             return entity['value'].get('first_name', None)\
 
+
+
 def get_quest(sp):
     try:
         question = choice(sp)
@@ -146,7 +162,4 @@ def get_quest(sp):
         return question
     except Exception as e:
         return 'А вопросы кончились'
-
-for i in range(32):
-    print(get_quest(list_of_dicts))
 
