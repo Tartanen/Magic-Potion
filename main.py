@@ -14,11 +14,13 @@ bad_image = '1030494/c85f3ac0666a9fca691b'
 good_image = '997614/df0eec6ada760b40841e'
 
 yes_list = ['да', 'давай', 'конечно', 'приступим', 'попробуем', 'ага']
-no_list = ['нет', 'не хочу', 'не буду', 'не']
 
 
 @app.route('/post', methods=['POST'])
 def main():
+
+    """ Главная функция """
+
     logging.info('Request: %r', request.json)
     response = {
         'session': request.json['session'],
@@ -33,6 +35,9 @@ def main():
 
 
 def handle_dialog(res, req):
+
+    """ Диалог Алисы с пользователем: знакомство и конец игры """
+
     user_id = req['session']['user_id']
     if req['session']['new']:
         res['response']['text'] = 'Привет! Давай знакомиться! Назови своё имя!'
@@ -68,7 +73,8 @@ def handle_dialog(res, req):
                 if i in req['request']['nlu']['tokens']:
                     if len(sessionStorage[user_id]['guessed_quest']) == 10:
                         good_image
-                        res['response']['text'] = 'Хрюня очень рад, что ты ему помог! Зелье получилось просто замечательным!'
+                        res['response'][
+                            'text'] = 'Хрюня очень рад, что ты ему помог! Зелье получилось просто замечательным!'
                         res['response']['card']['image_id'] = good_image
                         res['end_session'] = True
                     else:
@@ -97,6 +103,9 @@ def handle_dialog(res, req):
 
 
 def play_game(res, req, que):
+
+    """ Функция игры, пользователь отвечает на вопросы """
+
     user_id = req['session']['user_id']
     attempt = sessionStorage[user_id]['attempt']
     quest = que
@@ -171,12 +180,18 @@ def play_game(res, req, que):
 
 
 def get_first_name(req):
+
+    """ Функция для ввода пользователем имени """
+
     for entity in req['request']['nlu']['entities']:
         if entity['type'] == 'YANDEX.FIO':
             return entity['value'].get('first_name', None)
 
 
 def get_quest(sp):
+
+    """ Исключения """
+
     try:
         question = choice(sp)
         sp.remove(question)
