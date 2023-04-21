@@ -1,1 +1,12 @@
-Тут конфинденциальная информация, делать нечего
+{
+  "type": "service_account",
+  "project_id": "base-383807",
+  "private_key_id": "0e733b3a2dc577d2a7061ce962e3f6dcd8a0b82a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDSpel1nScXyG/H\nvDtUupvakhOtZsT2m7v4hGov5dI+n1twK39fnmZAg3V86LRH9Sshq/AY2hRfSbEl\nnGBGBAXK+p85JEDZhFruFHnpsmkyFam5RGxakLcWQxUzfadInG6SMhTfG+jpxKpZ\nZTWDEaJ5jJwabOtc/OF5LdJ9kbk1J0FfpGIeoZACFiZFgqT4mTw8s8JEJQ5LFL2W\nRgCl3nUf+dtWxVrCr84l4v3/hByIo/b5wRVCTnwWSCPCVWyUCF8ODhhI1KHCpugl\nH4+xuc/SPu/jn7ev7zFqVN7cshl0UYYdsypktqtYLB3WPfiKhUlQVoloS+fji4II\n6XujXIRFAgMBAAECggEACEhMvyVK4bUDAXlQYzr5INAd5PNbADqhr++o6zGKoZAL\nfNlrpzCnuEFS+nJ95YG+zJKhnKCKgi/4E/tWOmUzGHGKltPAQa03aWVgYRofkmq7\n+H8NEZyKDl6HNAtB62l3MYQK7QuAY3H/pAcw4kfsZFdtKzQoJvOse+LGLs4Zgvzx\n//wC1Sd5PtojCMSOnr/JJaEfQHl2YhhdETyqyGc6Fy2H+1OYcj9zNpk2rmoJMWnV\nKoujwutfEWTlYXuAyn0Ky5n6zixoCNrxF6k9A+CPIQcmqR4wDrbf4iI4H7rVtnXM\nQTb3p2WdrDBLxSFqf1r4P2/gl15TDVJSWTDSKxkiUQKBgQD6cFlHq5No7XgzL/9k\nN6q3QscqPWYHQKK+xlKRGlTV4IQ2tmj+OXEa6FzDrUsBQ+66S/rfShFuvmHFRlBG\nM5/p2muctsDNv0R2tZKbgpqcGQyBHRuZqEjILivFGLE2gtUF/ZjKdqU0bpQu2aDL\n+SCFzdOTYU4Z/sbU0uWwaXEh6QKBgQDXU14Ywrvrihsv+fwNm/vszVLqjq5RepmN\nZeQ70/5WqwHBe/WG7E3OAmuXdm4QcdNMTg5wQ4e2Y3oz7SvJAg/P9Q1SpB73q1Ui\nxqlQ/t13jVL7sEtGBtQzQXtiQr2q5iSoGDuJVoEoDPKO9XnCxRLgDFOA7DnRTnxa\nEradjSRZ/QKBgF2Zi+S7fZaj2l7XO46LN6TSsnlZBT8Eq0699LICs15UUVXZixgp\nA9rYqYMAy52ndBvwtcyqdCV9xjDi/LGgLc5LMhkaPKkpKT9s0WSJxZs9yWygImal\nfL5Ec1twxRrofxGEHIzfFxOnmH6CHBTgAYXAzaixn20bydhVEj+CySOxAoGAWtRK\n5Az48jGOqF0+Coua6FfwOws20x3xOekaLnaNWgfGtNRSTLjPVTBGLF0DrqIlLJHc\nm1SRIcmymcbY6nCZNPK8zPh4K6c1QXclownvZ+fQcmT6S67Dwl9D6b4XfciY++NE\n8fjwgHF9u/omg5dYD/SDIOYEuZru75vnNmx8Qg0CgYEAhWuWnzGlEVM7GvqsY5nd\nKyNSkiAel8TZjhGOUEotKsHJBIn/xv9W9uXyoSFOAS35Ano5qYKKA6O6kHnHnTOZ\nQZ7kEs8+LUnhxAcjAeYPLk8Vj5XTSUFEx8sPgp1AD0pBb0wRL6pF/cPMY2fwxm5M\nRi82Et6Bq3/OHN+0w3x6hLo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "base-dan@base-383807.iam.gserviceaccount.com",
+  "client_id": "114773178940808642690",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/base-dan%40base-383807.iam.gserviceaccount.com"
+}
