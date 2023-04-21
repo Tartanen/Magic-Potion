@@ -74,7 +74,8 @@ def handle_dialog(res, req):
                     if len(sessionStorage[user_id]['guessed_quest']) == 10:
                         good_image
                         res['response'][
-                            'text'] = 'Хрюня очень рад, что ты ему помог! Зелье получилось просто замечательным!'
+                            'text'] = 'Хрюня очень рад, что ты ему помог! Зелье получилось просто замечательным! ' \
+                                      'Спасибо! :)'
                         res['response']['card']['image_id'] = good_image
                         res['end_session'] = True
                     else:
