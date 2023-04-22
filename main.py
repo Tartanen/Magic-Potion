@@ -70,8 +70,12 @@ def handle_dialog(res, req):
         if not sessionStorage[user_id]['game_started']:
             if str(req['request']['nlu']['tokens']).lower() in yes_list:
                 if len(sessionStorage[user_id]['guessed_quest']) == 10:
+                    res['response']['card'] = {}
+                    res['response']['card']['type'] = 'BigImage'
                     res['response'][
                         'text'] = 'Хрюня очень рад, что ты ему помог! Зелье получилось просто замечательным!'
+                    res['response']['card']['title'] = 'Хрюня очень рад, что ты ему помог! ' \
+                                                       'Зелье получилось просто замечательным!'
                     res['response']['card']['image_id'] = good_image
                     res['end_session'] = True
                 else:
